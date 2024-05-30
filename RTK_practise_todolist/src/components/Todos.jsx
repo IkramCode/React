@@ -1,25 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo } from "../features/Slices/TodoSlice";
-import { useState } from "react";
-
-
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-  const [input, setInput] = useState('')
-
-  const updatestodo = (e) => {
-    e.preventDefault();
-    dispatch(updateTodo(input));
-  };
 
   return (
     <>
       <div>Todos</div>
       <ul className="list-none">
-        {todos.map((todo) => (
+        {
+        todos.map((todo) => (
           <li
             className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             key={todo.id}
