@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../Context/Context";
 
 export default function Details() {
-  const { detailsData, setDetailsData } = useContext(GlobalContext);
+  const { detailsData, setDetailsData, handleFavourites, favourites } =
+    useContext(GlobalContext);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -49,8 +50,17 @@ export default function Details() {
           <div className="mt-4 md:mt-0 md:ml-6 flex-1">
             <span className="block text-sm text-gray-600">{publisher}</span>
             <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
-            <button className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-700 transition">
-              Save as favourites
+            <button
+              onClick={() => handleFavourites(detailsData)}
+              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-700 transition"
+            >
+              {favourites &&
+              favourites.length > 0 &&
+              favourites.findIndex(
+                (item) => item.id === detailsData.id
+              ) !== -1
+                ? "Remove from favourites"
+                : "Add to favourites"}
             </button>
             <div className="mt-6">
               <span className="block text-lg font-semibold text-gray-700">
