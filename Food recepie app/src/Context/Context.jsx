@@ -8,6 +8,7 @@ export default function Context({ children }) {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
+  const [detailsData, setDetailsData] = useState([]);
 
   async function handleSubmit (event) {
     event.preventDefault()
@@ -23,6 +24,10 @@ export default function Context({ children }) {
             setSearch('')
         }
 
+        if (data.data.recipes === 0) {
+            <div>No recipes available!</div>
+        }
+
         console.log(data);
 
     } catch (error) {
@@ -33,7 +38,7 @@ export default function Context({ children }) {
   }
 
   return (
-    <GlobalContext.Provider value={{ search, setSearch, handleSubmit , loading , recipeList }}>
+    <GlobalContext.Provider value={{ search, setSearch, handleSubmit , loading , recipeList , detailsData , setDetailsData }}>
       {children}
     </GlobalContext.Provider>
   );

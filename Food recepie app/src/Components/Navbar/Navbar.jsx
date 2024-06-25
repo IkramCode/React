@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-100 w-full p-4 shadow-md fixed top-0 left-0 right-0 z-10">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 relative">
-        <h2 className="text-black text-2xl font-bold">Food Recipe App</h2>
+        <h2 className="text-black text-2xl font-bold hover:text-orange-700">Food Recipe App</h2>
         <form onSubmit={handleSubmit} className="flex flex-1 max-w-md mx-4">
           <input
             type="text"

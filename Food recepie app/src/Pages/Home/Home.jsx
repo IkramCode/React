@@ -8,7 +8,7 @@ export default function Home() {
   if (loading) return <div className="text-center text-blue-500 text-lg">Loading! Please wait</div>;
 
   return (
-    <div className="container mx-auto p-4 pt-20">  {/* Added pt-20 to give space below the navbar */}
+    <div className="container mx-auto p-4 pt-20">
       {recipeList && recipeList.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {recipeList.map((item) => (
@@ -16,7 +16,7 @@ export default function Home() {
           ))}
         </div>
       ) : (
-        <div className="text-center text-black text-5xl font-bold">Please enter something...</div>
+        <div className="text-center text-black text-5xl font-bold">No recipes to show ! Please enter something...</div>
       )}
     </div>
   );
