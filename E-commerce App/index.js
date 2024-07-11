@@ -3,5 +3,7 @@ import Footer from "./src/Components/Footer/Footer"
 import Layout from './Layout'
 import Home from './src/Pages/Home/Home'
 import Cart from './src/Pages/Cart/Cart'
+import store from "./src/App/store";
 
-export { Header , Footer , Home , Cart , Layout}
+
+export { Header , Footer , Home , Cart , Layout , store}
